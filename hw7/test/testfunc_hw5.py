@@ -57,4 +57,22 @@ class Test_func3(unittest.TestCase):
     
 
     
+############# 4 ############
+
+class TestReadData(unittest.TestCase):
+    def test_read_data1(self):
+        output = read_data('sample_diabetes_mellitus_data.csv')
+        expected_output = pd.read_csv('sample_diabetes_mellitus_data.csv')
+        assert_frame_equal(output,expected_output,check_dtype = False)
+
+
+############# 6 ##############
+
+class TestCountWords(unittest.TestCase):
+    
+    def test_count_simba(self):
+      example = ["Simba and Nala are lions.", "I laugh in the face of danger.","Hakuna matata", "Timon, Pumba and Simba are friends, but Simba could eat the other two."]
+      output = count_simba(example)
+      expected_output = 3
+      self.assertEqual(output,expected_output)
 
