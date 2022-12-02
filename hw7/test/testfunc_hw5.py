@@ -57,4 +57,26 @@ class Test_func3(unittest.TestCase):
     
 
     
+############ 7 ##############
+class Test_func7(unittest.TestCase):
+    def test_get_day_month_year_valid(self):
+        input = ['03-04-2000','09-10-1993','20-03-1995']
+        input = [datetime.strptime(date, '%d-%m-%Y') for date in input]
+        true_data = [[3,4,2000],[9,10,1993],[20,3,1995]]
+        expected_output = pd.DataFrame(true_data, columns = ['day', 'month', 'year'])
+        output = get_day_month_year(input)
+        assert_frame_equal(output, expected_output)
 
+
+############# 8 #############
+class Test_func8(unittest.TestCase):        
+    def test_compute_distance(self):
+        expected_output = [349.1115083262352, 1541.8564339502927]
+        assert compute_distance([((12,6), (15, 7)), ((20, 10),(10, 20))]) == expected_output
+
+
+########### 9 ###############
+class Test_func9(unittest.TestCase):    
+    def test_sum_general_int_list(self):
+        expected_output = 48
+        assert sum_general_int_list([[2], 4, 5, [1, [2], [3, 5, [7,8]], 10], 1]) == expected_output
